@@ -3,7 +3,8 @@ from flask_script import Manager
 from app import create_app
 import os
 from flask_migrate import MigrateCommand
-
+print('hello hello hello')
+print('yes yes yes yes')
 
 # 从环境变量中获取config_name
 config_name = os.environ.get('FLASK_CONFIG') or 'default'
