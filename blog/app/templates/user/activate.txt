@@ -1,0 +1,2 @@
+Hello {{ username }}
+请点击右边的链接完成激活，{{ url_for('user.activate',token=token, _external=True) }}激活

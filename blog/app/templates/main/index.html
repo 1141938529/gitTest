@@ -1,0 +1,27 @@
+{% extends 'common/base.html' %}
+
+{% block title %} 个人首页 {% endblock %}
+
+{% block page_content %}
+    {{ wtf.quick_form(form) }}
+
+    {% for post in posts %}
+        <hr/>
+        <div class="media">
+            <div class="media-left media-middle">
+                <a href="#">
+                    <img class="media-object" style="height: 80px;width: 80px;" src="{{ url_for('static', filename='upload/' + post.user.icon) }}" alt="头像">
+                </a>
+            </div>
+            <div class="media-body">
+                <div style="float:right">{{ moment(post.timestamp).fromNow() }}</div>
+                <h4 class="media-heading">{{ post.user.username }}</h4>
+                {{ post.content }}
+            </div>
+        </div>
+    {% endfor %}
+    <hr/>
+    {{ show_pagination(pagination, 'main.index') }}
+{% endblock %}
+
+
